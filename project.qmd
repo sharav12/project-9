@@ -1,0 +1,23 @@
+---
+title: "Project"
+author: "Sharav"
+format: html
+---
+
+## Quarto
+
+Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <https://quarto.org>.
+
+## Running Code
+
+When you click the **Render** button, a document will be generated that includes both content and the output of embedded code. You can embed code like this:
+
+```{r}
+# This is an R code chunk
+message: FALSE
+echo: FALSE
+library(tidyverse)
+
+# Assuming 'mass-tracts.csv' is in the same directory as the Quarto file
+data <- read.csv("mass-tracts.csv")
+head(data)
