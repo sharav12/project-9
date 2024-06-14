@@ -11,13 +11,22 @@ Quarto enables you to weave together content and executable code into a finished
 ## Running Code
 
 When you click the **Render** button, a document will be generated that includes both content and the output of embedded code. You can embed code like this:
+```{r}
+#|message: FALSE
+#|echo: FALSE
+library(tidyverse)
+x <- read.csv("mass-tracts.csv")
+
+
+```
 
 ```{r}
-# This is an R code chunk
-message: FALSE
-echo: FALSE
-library(tidyverse)
+x|>ggplot(aes(x = race, y = med_income, color = race, group = race)) +
+  geom_line(size=5) +
+  labs(title = "Median Income vs Race Distribution",
+       x = "Race",
+       y = "Median Income",
+       color = "Race") +
+  theme_minimal()
+```
 
-# Assuming 'mass-tracts.csv' is in the same directory as the Quarto file
-data <- read.csv("mass-tracts.csv")
-head(data)
